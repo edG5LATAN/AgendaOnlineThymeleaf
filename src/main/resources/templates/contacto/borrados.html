@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{contacto/base :: head}">
+</head>
+<body>
+<!--cabecera-->
+<div th:replace="~{contacto/base :: cabecera}"></div>
+<!-- jumbotrom-->
+<div th:replace="~{contacto/base :: jumbotrom('Contactos eliminados')}"></div>
+<!-- navBar -->
+<div th:replace="~{contacto/base :: navbar}"></div>
+
+<!-- cuerpo -->
+<div  class="container d-flex flex-wrap">
+  <div th:each="contacto: ${contactos}" class="card m-1 bg-danger-subtle" style="width: 19rem;">
+    <img th:src="${contacto.imagen}" class="card-img-top" alt="imagen de card">
+    <div class="card-body">
+      <h5 th:text="${contacto.nombre}" class="card-title">Nombre de Contacto</h5>
+      <div class="mb-1">
+        <label for="correo" class="form-label">Correo</label>
+        <input th:value="${contacto.correo}"  type="text" class="form-control" id="correo" readonly>
+      </div>
+      <div class="mb-1">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input th:value="${contacto.telefono}" type="text" class="form-control" id="telefono" readonly>
+      </div>
+      <div class="d-flex justify-content-evenly align-items-center mb-2">
+        <div class="mb-1" style="width:45%">
+          <label for="edad" class="form-label">Edad</label>
+          <input th:value="${contacto.edad}" type="text" class="form-control" id="edad" readonly>
+        </div>
+        <div class="mb-1" style="width:45%">
+          <label for="fecha" class="form-label">Fecha</label>
+          <input th:value="${contacto.fecha}" type="text" class="form-control" id="fecha" readonly>
+        </div>
+      </div>
+      <div class="mb-1">
+        <label for="direccion" class="form-label">Direccion</label>
+        <input th:value="${contacto.direccion}" type="text" class="form-control" id="direccion" readonly>
+      </div>
+
+
+      <a th:href="@{borrados/restaurar/{id}(id=${contacto.id})}"  class="btn btn-success">Restaurar</a>
+    </div>
+  </div>
+</div>
+<!-- pie de pagina -->
+<div></div>
+
+</body>
+</html>

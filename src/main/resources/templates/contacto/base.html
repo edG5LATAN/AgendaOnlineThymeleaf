@@ -1,0 +1,53 @@
+<!--el head principal-->
+<head th:fragment="head">
+    <meta charset="UTF-8">
+<!--    link de bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!--   link de scrip de bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!--   link de icon de bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Contactos App</title>
+</head>
+
+<!--cabecera del proyecto-->
+<div th:fragment="cabecera" class="d-flex justify-content-between align-items-center p-3 container-fluid bg-dark ">
+    <a href="/" aria-current="page" >
+        <img class="rounded-5" style="width:60px" src="https://i.pinimg.com/736x/79/af/8d/79af8d9946ab024aeff1d9d6929af8a0.jpg" alt="imagen logo">
+    </a>
+    <a href="#" class="mh-5% btn btn-primary" role="button" data-bs-toggle="button">Login</a>
+</div>
+
+<!--jumbotrom del proyecto-->
+<div th:fragment="jumbotrom(valor)" class="container mt-2 mb-2 bg-primary rounded p-4 d-flex justify-content-center align-items-center">
+    <h1 th:text="${valor}" class="fs-1 fw-bold text-white ">Agenda</h1>
+</div>
+
+<!--navbar de proyecto-->
+<div th:fragment="navbar" class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-person-lines-fill fs-1 fw-bold text-primary-emphasis" ></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/crear/formulario">Crear</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/borrados">Eliminados</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+</div>
