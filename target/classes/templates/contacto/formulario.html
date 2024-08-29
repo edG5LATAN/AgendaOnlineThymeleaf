@@ -1,64 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="~{contacto/base :: head}">
+<head th:replace="~{contacto/base :: head}"></head>
 <body>
 <!--cabecera-->
-<div th:replace="~{contacto/base :: cabecera}"></div>
-<!-- jumbotrom-->
-<div th:replace="~{contacto/base :: jumbotrom('Crear Nuevo')}"></div>
-<!-- navBar -->
-<div th:replace="~{contacto/base :: navbar}"></div>
-<!--formulario crear-->
-<div class="container d-flex justify-content-center aling-items-center mb-2 mt-2">
-    <form th:object="${dtoContacto}" class="card rounded-2 p-3" method="POST" action="/crear/nuevo " style="width:70%">
-        <div class="form-floating mb-2">
-            <input th:field="*{nombre}" type="text" th:errorclass="is-invalid" class="form-control" id="nombre" placeholder="Nombre de contacto">
-            <label for="nombre">Nombre Contacto</label>
-            <div th:errors="*{nombre}" class="invalid-feedback">
-                nombre.
+<div th:replace="~{contacto/base :: nav_login}"></div>
+<!--jumbotrom-->
+<div th:replace="~{contacto/base :: yumbotron('Nuevo Contacto','none')}"></div>
+<!--navbar-->
+<div th:replace="~{contacto/base :: nav}"></div>
+<!--cuerpo de proyecto-->
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="p-3 row rounded-2 col-12 d-flex justify-content-center align-items-center"  >
+
+        <form class="bg-secondary col col-sm-12 col-md-12 col-lg-6 pt-3 pb-3 rounded-3" method="POST" action="/crear/nuevo" >
+            <div class="form-floating mb-2">
+                <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre">
+                <label for="nombre">Nombre de Contacto</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input name="imagen" type="text" class="form-control" id="imagen" placeholder="Ingrese Url de imagen">
+                <label for="imagen">Url de Imagen</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input name="telefono" type="text" class="form-control" id="telefono" placeholder="Ingrese Telefono">
+                <label for="telefono">Telefono de contacto</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input name="correo" type="email" class="form-control" id="correo" placeholder="ingrese el correo">
+                <label for="correo">Correo de Contacto</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input name="edad" type="number" class="form-control" id="edad" placeholder="Edad de Contacto">
+                <label for="edad">Edad de contacto</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input name="direccion" type="text" class="form-control" id="direccion" placeholder="Ingrese Direccion">
+                <label for="direccion">Direccion de contacto</label>
             </div>
 
-        </div>
-        <div class="form-floating mb-2">
-            <input th:field="*{imagen}" type="text" th:errorclass="is-invalid" class="form-control" id="urlImagen" placeholder="Ingresa Url de imagen">
-            <label for="urlImagen">Url Imagen</label>
-            <div th:errors="*{imagen}" class="invalid-feedback">
-                Ingrese una url de imagen.
-            </div>
-        </div>
-        <div class="form-floating mb-2">
-            <input th:field="*{edad}" type="text" th:errorclass="is-invalid" class="form-control" id="edad" placeholder="Nombre de contacto">
-            <label for="edad">Edad de contacto</label>
-            <div th:errors="*{edad}" class="invalid-feedback">
-                Ingrese la edad.
-            </div>
-        </div>
-        <div class="form-floating mb-2">
-            <input th:field="*{correo}" type="email" th:errorclass="is-invalid" class="form-control" id="correo" placeholder="Ingresa Direccion de correo">
-            <label for="correo">Direccion de correo</label>
-            <div th:errors="*{correo}" class="invalid-feedback">
-                Ingrese un correo.
-            </div>
-        </div>
-        <div class="form-floating mb-2">
-            <input th:field="*{telefono}" type="text" th:errorclass="is-invalid" class="form-control" id="telefono" placeholder="Numero de telefono">
-            <label for="telefono">Telefono de Contacto</label>
-            <div th:errors="*{telefono}" class="invalid-feedback">
-                Ingrese un telefono.
-            </div>
-        </div>
-        <div class="form-floating mb-2">
-            <input th:field="*{direccion}" type="text" th:errorclass="is-invalid" class="form-control" id="direccion" placeholder="direccion de contacto">
-            <label for="direccion">Direccion de Contacto</label>
-            <div th:errors="*{direccion}" class="invalid-feedback">
-                Ingrese un direccion.
-            </div>
-        </div>
-         <div class="d-flex justify-content-center aling-items-center ">
-             <button type="submit" class="btn btn-primary">Nuevo</button>
-         </div>
-    </form>
-
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
 
 </body>

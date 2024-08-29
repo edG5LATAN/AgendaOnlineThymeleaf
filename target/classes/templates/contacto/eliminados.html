@@ -5,16 +5,15 @@
 <!--cabecera-->
 <div th:replace="~{contacto/base :: nav_login}"></div>
 <!--yumbotrom-->
-<div th:replace="~{contacto/base :: yumbotron('Agenda Online','none')}"></div>
+<div th:replace="~{contacto/base :: yumbotron('Contactos Eliminados','none')}"></div>
 <!--navegador-->
 <div th:replace="~{contacto/base :: nav }"></div>
 <!--cuerpo-->
 <div class="container d-flex align-items-center flex-wrap">
-    <div class="container row d-flex justify-content-around align-items-center; flex-wrap col-12">
-        <div th:each="contacto : ${contactos}" class="card bg-info m-2 bg-primary-subtle col-lg-3 col-md-4 col-sm-12">
-            <img th:src="${contacto.imagen}" class="rounded img-fluid" alt="imagen prueba">
+    <div class="row ">
+        <div th:each="contacto : ${contactos}" class="card m-2 bg-danger-subtle " style="width: 18rem">
+            <img th:src="${contacto.imagen}" class="rounded card-img-top" alt="imagen prueba" >
             <div class="card-body">
-                <!--                <a th:href="@{borrar/{id}(id=${contacto.id})}" class="btn btn-danger">Eliminar</a>-->
                 <h5 th:text="${contacto.nombre}" class="card-title">Nombre contacto</h5>
                 <div class="mb-1">
                     <label for="telefono" class="form-label">Telefono</label>
@@ -40,13 +39,7 @@
                     </div>
 
                 </div>
-<!--                modal de apertura para eliminacion de contacto -->
-                <div class="d-flex flex-wrap">
-                    <a th:href="@{borrar/{id}(id=${contacto.id})}" class="m-1 btn btn-danger">Eliminar</a>
-                    <a th:href="@{actualizar/{id}(id=${contacto.id})}" class="m-1 btn btn-success">Actualizar</a>
-                </div>
-
-            </div>
+                <a th:href="@{borrar/restaurar/{id}(id=${contacto.id})}" class="btn btn-success">Restaurar</a>
             </div>
         </div>
     </div>

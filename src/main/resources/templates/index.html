@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="~{contacto/base :: head}">
-</head>
+<head th:replace="~{contacto/base :: head}"></head>
 <body>
 <!--cabecera-->
-<div th:replace="~{contacto/base :: cabecera}"></div>
-<!-- jumbotrom-->
-<div th:replace="~{contacto/base :: jumbotrom('Pagina principal')}"></div>
-<!-- navBar -->
-<div th:replace="~{contacto/base :: navbar}"></div>
-
-<!-- cuerpo -->
-<div  class="container d-flex justify-content-evenly flex-wrap">
-    <div th:each="contacto: ${contactos}" class="card m-1 bg-success-subtle" style="width: 19rem;">
-        <img th:src="${contacto.imagen}" class="card-img-top" alt="imagen de card">
-        <div class="card-body">
-            <h5 th:text="${contacto.nombre}" class="card-title">Nombre de Contacto</h5>
-            <div class="mb-1">
-                <label for="correo" class="form-label">Correo</label>
-                <input th:value="${contacto.correo}"  type="text" class="form-control" id="correo" readonly>
-            </div>
-            <div class="mb-1">
-                <label for="telefono" class="form-label">Telefono</label>
-                <input th:value="${contacto.telefono}" type="text" class="form-control" id="telefono" readonly>
-            </div>
-            <div class="d-flex justify-content-evenly align-items-center mb-2">
-                <div class="mb-1" style="width:45%">
-                    <label for="edad" class="form-label">Edad</label>
-                    <input th:value="${contacto.edad}" type="text" class="form-control" id="edad" readonly>
+<div th:replace="~{contacto/base :: nav_login}"></div>
+<!--yumbotrom-->
+<div th:replace="~{contacto/base :: yumbotron('Agenda Online','none')}"></div>
+<!--navegador-->
+<div th:replace="~{contacto/base :: nav }"></div>
+<!--cuerpo-->
+<div class="container d-flex align-items-center flex-wrap">
+    <div class="container row d-flex justify-content-around align-items-center; flex-wrap col-12">
+        <div th:each="contacto : ${contactos}" class="card bg-info m-2 bg-primary-subtle col-lg-3 col-md-4 col-sm-12">
+            <img th:src="${contacto.imagen}" class="rounded img-fluid" alt="imagen prueba">
+            <div class="card-body">
+                <!--                <a th:href="@{borrar/{id}(id=${contacto.id})}" class="btn btn-danger">Eliminar</a>-->
+                <h5 th:text="${contacto.nombre}" class="card-title">Nombre contacto</h5>
+                <div class="mb-1">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input th:value="${contacto.telefono}" type="tel" class="form-control" id="telefono" readonly>
                 </div>
-                <div class="mb-1" style="width:45%">
-                    <label for="fecha" class="form-label">Fecha</label>
-                    <input th:value="${contacto.fecha}" type="text" class="form-control" id="fecha" readonly>
+
+                <div class="mb-1">
+                    <label for="correo" class="form-label">correo</label>
+                    <input th:value="${contacto.correo}" type="email" class="form-control" id="correo" readonly>
                 </div>
-            </div>
-            <div class="mb-1">
-                <label for="direccion" class="form-label">Direccion</label>
-                <input th:value="${contacto.direccion}" type="text" class="form-control" id="direccion" readonly>
-            </div>
+                <div class="mb-1">
+                    <label for="direccion" class="form-label">Direccion</label>
+                    <input th:value="${contacto.direccion}" type="text" class="form-control" id="direccion" readonly>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="mb-1" style="width:45%">
+                        <label for="edad" class="form-label">edad</label>
+                        <input th:value="${contacto.edad}" type="text" class="form-control" id="edad" readonly>
+                    </div>
+                    <div class="mb-1" style="width:45%">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input th:value="${contacto.fecha}" type="date" class="form-control" id="fecha" readonly>
+                    </div>
 
+                </div>
+<!--                modal de apertura para eliminacion de contacto -->
+                <div class="d-flex flex-wrap">
+                    <a th:href="@{borrar/{id}(id=${contacto.id})}" class="m-1 btn btn-danger">Eliminar</a>
+                    <a th:href="@{actualizar/{id}(id=${contacto.id})}" class="m-1 btn btn-success">Actualizar</a>
+                </div>
 
-            <a th:href="@{borrar/{id}(id=${contacto.id})}"  class="btn btn-danger">Borrar</a>
-            <a th:href="@{actualizar/{id}(id=${contacto.id})}"  class="btn btn-info">Actualizar</a>
+            </div>
+            </div>
         </div>
     </div>
+
 </div>
-<!-- pie de pagina -->
-<div></div>
+<!--pie de pagina-->
 
 </body>
 </html>
