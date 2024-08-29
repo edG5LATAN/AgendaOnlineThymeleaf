@@ -78,12 +78,7 @@ public class ControllerContacto {
 
     @PostMapping("/busqueda/unidad")
     public String busqueda(String nombre,Model model){
-//
-//        if(nombre==""|| nombre==null){
-//            System.out.println("no se ayo datos");
-//            return "redirect:/";
-//
-//        }
+
         Contacto contacto=repository.findByNombre(nombre);
         model.addAttribute("contactos",contacto);
         return "contacto/busqueda";

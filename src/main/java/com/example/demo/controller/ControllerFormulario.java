@@ -26,11 +26,13 @@ public class ControllerFormulario {
 
     @PostMapping("/nuevo")
     public String nuevo(@Valid DtoContacto dtoContacto, BindingResult result){
-        repository.save(new Contacto(dtoContacto));
         if(result.hasErrors()){
-            return "contacto/formulariores";
+            return "contacto/formulario";
+        }else {
+            repository.save(new Contacto(dtoContacto));
+            return "redirect:/";
         }
-        return "redirect:/";
+
     }
 
 }

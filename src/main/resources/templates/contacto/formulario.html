@@ -12,30 +12,48 @@
 <div class="container d-flex justify-content-center align-items-center">
     <div class="p-3 row rounded-2 col-12 d-flex justify-content-center align-items-center"  >
 
-        <form class="bg-secondary col col-sm-12 col-md-12 col-lg-6 pt-3 pb-3 rounded-3" method="POST" action="/crear/nuevo" >
+        <form th:object="${dtoContacto}" class="bg-success-subtle col col-sm-12 col-md-12 col-lg-6 pt-3 pb-3 rounded-3" method="POST" action="/crear/nuevo" >
             <div class="form-floating mb-2">
-                <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre">
+                <input th:field="*{nombre}" type="text" th:errorclass="is-invalid" class="form-control" id="nombre" placeholder="Ingrese su Nombre">
                 <label for="nombre">Nombre de Contacto</label>
+                <div th:errors="*{nombre}" class="invalid-feedback">
+                    Error nombre
+                </div>
             </div>
             <div class="form-floating mb-2">
-                <input name="imagen" type="text" class="form-control" id="imagen" placeholder="Ingrese Url de imagen">
+                <input th:field="*{imagen}" type="text" th:errorclass="is-invalid" class="form-control" id="imagen" placeholder="Ingrese Url de imagen">
                 <label for="imagen">Url de Imagen</label>
+                <div th:errors="*{imagen}" class="invalid-feedback">
+                    Error imagen
+                </div>
             </div>
             <div class="form-floating mb-2">
-                <input name="telefono" type="text" class="form-control" id="telefono" placeholder="Ingrese Telefono">
+                <input th:field="*{telefono}" name="telefono" type="text" th:errorclass="is-invalid" class="form-control" id="telefono" placeholder="Ingrese Telefono">
                 <label for="telefono">Telefono de contacto</label>
+                <div th:errors="*{telefono}" class="invalid-feedback">
+                    Error telefono
+                </div>
             </div>
             <div class="form-floating mb-2">
-                <input name="correo" type="email" class="form-control" id="correo" placeholder="ingrese el correo">
+                <input th:field="*{correo}" type="email" th:errorclass="is-invalid" class="form-control" id="correo" placeholder="ingrese el correo">
                 <label for="correo">Correo de Contacto</label>
+                <div th:errors="*{correo}" class="invalid-feedback">
+                    Error correo
+                </div>
             </div>
             <div class="form-floating mb-2">
-                <input name="edad" type="number" class="form-control" id="edad" placeholder="Edad de Contacto">
+                <input th:field="*{edad}" type="number" th:errorclass="is-invalid" class="form-control" id="edad" placeholder="Edad de Contacto">
                 <label for="edad">Edad de contacto</label>
+                <div th:errors="*{edad}" class="invalid-feedback">
+                    Error edad
+                </div>
             </div>
             <div class="form-floating mb-2">
-                <input name="direccion" type="text" class="form-control" id="direccion" placeholder="Ingrese Direccion">
+                <input th:field="*{direccion}" type="text" th:errorclass="is-invalid" class="form-control" id="direccion" placeholder="Ingrese Direccion">
                 <label for="direccion">Direccion de contacto</label>
+                <div th:errors="*{direccion}" class="invalid-feedback">
+                    Error direccion
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
