@@ -58,9 +58,9 @@ para este proyecto se uso la version 3.3.3 de SpringBoot
 
 ## Demo
 
-Aca podras ver el video del proyecto ya implementado y usando SWAGGER en youtube https://youtu.be/0lHOX6BPFoc
+Aca podras ver el video del proyecto ya implementado Thymeleafe y Bootstrap en youtube https://youtu.be/0lHOX6BPFoc
 
-![ProyectoContacto](blob:https://www.pinterest.com/626371b8-f84b-46ee-9c50-a2b46a3f6141)
+![ProyectoContacto](blob:https://www.pinterest.com/93ec78d0-114e-4d4e-9656-6d1d2c6da4dd)
 
 
 
