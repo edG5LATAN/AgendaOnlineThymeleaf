@@ -60,7 +60,7 @@ para este proyecto se uso la version 3.3.3 de SpringBoot
 
 Aca podras ver el video del proyecto ya implementado Thymeleafe y Bootstrap en youtube https://youtu.be/0lHOX6BPFoc
 
-![ProyectoContacto](blob:https://www.pinterest.com/93ec78d0-114e-4d4e-9656-6d1d2c6da4dd)
+![ProyectoContacto](https://i.pinimg.com/originals/a2/00/5c/a2005c44478e85d0535f3fc8f102779a.gif)
 
 
 
